@@ -13,7 +13,12 @@ window#waybar {
 }
 
 #workspaces {
-  border-radius: 5px;
+	padding: 0;
+}
+
+#workspaces button {
+  padding: 1px 1px;   /* was likely bigger — shrink left/right first */
+  border-radius: 4px; /* smaller radius tends to look tighter */
 }
 
 #workspaces button.persistent {
@@ -27,19 +32,16 @@ window#waybar {
 #workspaces button.active {
   color: #24283b;
   background-color: #7aa2f7;
-  border-radius: 5px;
 }
 
 #workspaces button.focused {
   color: #c0f8d2;
   background-color: #7aa2f7;
-  border-radius: 5px;
 }
 
 #workspaces button:hover {
   background-color: #7dcfff;
   color: #24283b;
-  border-radius: 5px;
 }
 
 tooltip {
