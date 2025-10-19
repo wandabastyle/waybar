@@ -1,0 +1,108 @@
+{
+  "position": "top",
+  "height": 30,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["mpris"],
+  "modules-right": [
+    "network",
+    "wireplumber",
+    "battery",
+    "clock",
+    "idle_inhibitor",
+    "custom/updates"
+  ],
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{player_icon} ⏸ {dynamic}",
+    "format-stopped": "{player_icon} Stopped",
+    "ellipsis": true,
+    "player-icons": {
+      "default": "󰎈",
+      "spotify": "",
+      "SongRec": "󰋋"
+    },
+    "tooltip": true,
+    "tooltip-format": "{player}\n{dynamic}",
+    // dynamic content order & look
+    "dynamic-order": ["artist", "title", "album", "length"],
+    // trim long fields (and apply same limits in tooltip)
+    "artist-len": 50,
+    "title-len": 70,
+    "album-len": 50,
+    "dynamic-len": 120,
+    "status-icons": {
+      "playing": "▶",
+      "paused": "⏸",
+      "stopped": "◼"
+    },
+    "on-click": "playerctl play-pause --player=spotify",
+    "on-click-right": "playerctl next --player=spotify",
+    "on-scroll-up": "playerctl volume 0.02+ --player=spotify",
+    "on-scroll-down": "playerctl volume 0.02- --player=spotify",
+    "ignored-players": ["firefox", "chromium"]
+  },
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰤮 Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁 Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": ""
+    }
+  },
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-full": "󱈑 {capacity}%",
+    "format-icons": ["󱊡", "󱊢", "󱊣"]
+  },
+  "custom/updates": {
+    "format": "{icon}",
+    "on-click": "tkpacman",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": "󱍷",
+      "updated": "󰂪"
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
+  },
+  "clock": {
+    "format": "󰅐 {:%H:%M}", // time only on the bar
+    "tooltip": true,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months": "<span foreground=\"#7aa2f7\"><b>{}</b></span>",
+        "weekdays": "<span foreground=\"#7aa2f7\"><b>{}</b></span>",
+        "today": "<span foreground=\"#e5988f\"><b><u>{}</u></b></span>" // highlight today
+      }
+    }
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰌆",
+      "deactivated": "󰌆"
+    },
+    "timeout": 60
+  }
+}

@@ -1,0 +1,127 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono";
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: #24283b;
+  opacity: 0.96;
+}
+
+#workspaces {
+  border-radius: 5px;
+}
+
+#workspaces button.persistent {
+  color: #c0f8d2;
+}
+
+#workspaces button.empty {
+  color: #c0caf5;
+}
+
+#workspaces button.active {
+  color: #24283b;
+  background-color: #7aa2f7;
+  border-radius: 5px;
+}
+
+#workspaces button.focused {
+  color: #c0f8d2;
+  background-color: #7aa2f7;
+  border-radius: 5px;
+}
+
+#workspaces button:hover {
+  background-color: #7dcfff;
+  color: #24283b;
+  border-radius: 5px;
+}
+
+tooltip {
+  font-weight: bold;     /* optional */
+}
+
+tooltip label {
+  color: #c0caf5;        /* optional: adjust color if needed */
+}
+
+#mpris, #wireplumber, #battery, #custom-updates, #clock, #idle_inhibitor {
+  background-color: #24283b;
+  padding-right: 15px;
+}
+
+#mpris {
+  color: #c0caf5;
+}
+
+#network {
+  color: #f7768e;
+}
+
+/* wireplumber — shared transition */
+#wireplumber,
+#wireplumber.muted {
+  transition: padding-left 120ms ease, color 120ms ease, opacity 120ms ease;
+}
+
+/* unmuted */
+#wireplumber {
+  color: #e0af68;
+  padding-left: 5px;
+}
+
+/* muted */
+#wireplumber.muted {
+  color: #7f849c;        /* or keep same if you only want the shift */
+  opacity: 0.95;         /* optional subtle dim */
+  padding-left: 15px;
+}
+
+#battery {
+  color: #9ece6a;
+}
+
+#battery.charging {
+  color: #9ece6a;
+}
+
+#battery.warning:not(.charging) {
+  background-color: #f7768e;
+  color: #24283b;
+  border-radius: 5px;
+}
+
+#custom-updates {
+  color: #f79276;
+}
+
+#custom-updates.updated {
+  color: #a3d9a5;
+}
+
+#clock {
+  color: #7dcfff;
+}
+
+/* idle inhibitor: pastel yellow + smooth state change (no padding changes) */
+#idle_inhibitor,
+#idle_inhibitor.activated {
+  padding: 0px 20px 1px 15px;
+  margin-left: -15px;
+  transition: color 140ms ease, opacity 140ms ease;
+}
+
+#idle_inhibitor {               /* idle/off */
+  color: #d8d27a;               /* pastel yellow */
+  opacity: 0.95;
+}
+
+#idle_inhibitor.activated {     /* active/on */
+  color: #e5988f;               /* slightly brighter pastel yellow */
+  opacity: 1;
+}
