@@ -13,36 +13,33 @@ window#waybar {
 }
 
 #workspaces {
-	padding: 0;
+	padding: 0px;
 }
 
+/* baseline */
 #workspaces button {
-  padding: 1px 1px;   /* was likely bigger — shrink left/right first */
-  border-radius: 4px; /* smaller radius tends to look tighter */
+	padding: 5px 5px;
+  color: #a9b1d6;                 /* inactive base */
+  opacity: 0.9;
+  transition: color 120ms ease, opacity 120ms ease;
 }
 
-#workspaces button.persistent {
-  color: #c0f8d2;
-}
-
+/* empty: much dimmer using a muted Moon color + lower opacity */
 #workspaces button.empty {
-  color: #c0caf5;
+  opacity: 0.35;
 }
 
-#workspaces button.active {
-  color: #24283b;
-  background-color: #7aa2f7;
-}
+/* non-empty (has windows) */
+#workspaces button:not(.empty) { color: #c0caf5; opacity: 1; }
 
-#workspaces button.focused {
-  color: #c0f8d2;
-  background-color: #7aa2f7;
-}
+/* focused (the one you’re on) */
+#workspaces button.focused { color: #7aa2f7; }
 
-#workspaces button:hover {
-  background-color: #7dcfff;
-  color: #24283b;
-}
+/* hover preview */
+#workspaces button:hover { color: #c0caf5; opacity: 1; }
+
+/* urgent: clear alert */
+#workspaces button.urgent { color: #f7768e; }
 
 tooltip {
   font-weight: bold;     /* optional */
