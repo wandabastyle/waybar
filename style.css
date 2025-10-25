@@ -18,7 +18,7 @@ window#waybar {
 
 /* baseline */
 #workspaces button {
-	padding: 5px 5px;
+	padding: 0px;
   color: #a9b1d6;                 /* inactive base */
   opacity: 0.9;
   transition: color 120ms ease, opacity 120ms ease;
