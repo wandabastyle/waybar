@@ -39,7 +39,7 @@
     "on-click-right": "playerctl next --player=spotify",
     "on-scroll-up": "playerctl volume 0.02+ --player=spotify",
     "on-scroll-down": "playerctl volume 0.02- --player=spotify",
-    "ignored-players": ["firefox", "chromium"]
+    "ignored-players": ["firefox", "chromium", "brave"]
   },
   "network": {
     "format-wifi": "  {essid}",
