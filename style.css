@@ -2,98 +2,108 @@
   border: none;
   border-radius: 0;
   font-family: "JetBrainsMono";
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 600;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: #24283b;
-  opacity: 0.96;
+  background: rgba(31, 35, 53, 0.95);
+  color: #c0caf5;
+  border-bottom: 1px solid rgba(122, 162, 247, 0.2);
 }
 
 #workspaces {
-  border-radius: 5px;
+  margin: 0 4px;
 }
 
-#workspaces button.persistent {
-  color: #c0f8d2;
+#workspaces button {
+  min-width: 20px;
+  margin: 0 2px;
+  padding: 0 5px;
+  color: #7f849c;
+  background: transparent;
+  transition: color 120ms ease, opacity 120ms ease;
 }
 
 #workspaces button.empty {
-  color: #c0caf5;
+  color: #5f657f;
+  opacity: 0.65;
 }
 
-#workspaces button.active {
-  color: #24283b;
-  background-color: #7aa2f7;
-  border-radius: 5px;
+#workspaces button:not(.empty) {
+  color: #a9b1d6;
+  opacity: 1;
 }
 
 #workspaces button.focused {
-  color: #c0f8d2;
-  background-color: #7aa2f7;
-  border-radius: 5px;
+  color: #c0caf5;
+  font-weight: 700;
+  box-shadow: inset 0 -2px #7aa2f7;
 }
 
 #workspaces button:hover {
-  background-color: #7dcfff;
-  color: #24283b;
-  border-radius: 5px;
+  color: #c0caf5;
 }
 
-tooltip {
-  font-weight: bold;     /* optional */
+#workspaces button.urgent {
+  color: #f7768e;
+  font-weight: 700;
 }
 
-tooltip label {
-  color: #c0caf5;        /* optional: adjust color if needed */
-}
-
-#mpris, #wireplumber, #battery, #custom-updates, #clock, #idle_inhibitor {
-  background-color: #24283b;
-  padding-right: 15px;
+#mpris,
+#network,
+#wireplumber,
+#battery,
+#clock,
+#idle_inhibitor,
+#custom-updates {
+  margin: 0;
+  padding: 0 9px;
+  background: transparent;
+  transition: color 120ms ease;
 }
 
 #mpris {
   color: #c0caf5;
+  padding: 0 10px;
 }
 
 #network {
+  color: #7dcfff;
+}
+
+#network.disconnected {
   color: #f7768e;
+  font-weight: 700;
 }
 
-/* wireplumber — shared transition */
-#wireplumber,
-#wireplumber.muted {
-  transition: padding-left 120ms ease, color 120ms ease, opacity 120ms ease;
-}
-
-/* unmuted */
 #wireplumber {
   color: #e0af68;
-  padding-left: 5px;
 }
 
-/* muted */
 #wireplumber.muted {
-  color: #7f849c;        /* or keep same if you only want the shift */
-  opacity: 0.95;         /* optional subtle dim */
-  padding-left: 15px;
+  color: #7f849c;
+  font-weight: 500;
 }
 
 #battery {
   color: #9ece6a;
 }
 
-#battery.charging {
-  color: #9ece6a;
+#battery.warning:not(.charging) {
+  color: #e0af68;
+  font-weight: 700;
 }
 
-#battery.warning:not(.charging) {
-  background-color: #f7768e;
-  color: #24283b;
-  border-radius: 5px;
+#battery.critical:not(.charging) {
+  color: #f7768e;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+#clock {
+  color: #c0caf5;
 }
 
 #custom-updates {
@@ -101,27 +111,30 @@ tooltip label {
 }
 
 #custom-updates.updated {
-  color: #a3d9a5;
+  color: #9ece6a;
 }
 
-#clock {
-  color: #7dcfff;
+#idle_inhibitor {
+  color: #d8d27a;
 }
 
-/* idle inhibitor: pastel yellow + smooth state change (no padding changes) */
-#idle_inhibitor,
 #idle_inhibitor.activated {
-  padding: 0px 20px 1px 15px;
-  margin-left: -15px;
-  transition: color 140ms ease, opacity 140ms ease;
+  color: #e5988f;
+  font-weight: 700;
 }
 
-#idle_inhibitor {               /* idle/off */
-  color: #d8d27a;               /* pastel yellow */
-  opacity: 0.95;
+#custom-updates {
+  margin-right: 4px;
 }
 
-#idle_inhibitor.activated {     /* active/on */
-  color: #e5988f;               /* slightly brighter pastel yellow */
-  opacity: 1;
+tooltip {
+  background: rgba(31, 35, 53, 0.96);
+  border: 1px solid rgba(122, 162, 247, 0.24);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+tooltip label {
+  color: #c0caf5;
+  padding: 2px 4px;
 }
