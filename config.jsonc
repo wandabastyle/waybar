@@ -36,7 +36,7 @@
       "stopped": "◼"
     },
     "on-click": "playerctl play-pause --player=spotify",
-    "on-click-right": "playerctl next --player=spotify",
+    "on-click-right": "sh -c 'track=\"$(playerctl metadata --format \"{{ artist }} - {{ title }}\")\"; printf \"%s\" \"$track\" | wl-copy; notify-send -a Waybar -t 1200 \"Copied track\" \"$track\"'",
     "on-scroll-up": "playerctl volume 0.02+ --player=spotify",
     "on-scroll-down": "playerctl volume 0.02- --player=spotify",
     "ignored-players": ["firefox", "chromium", "brave"]
@@ -61,7 +61,7 @@
     }
   },
   "battery": {
-    "bat": "BAT0",
+    "bat": "BAT1",
     "states": {
       "warning": 30,
       "critical": 15
